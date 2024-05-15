@@ -2,7 +2,7 @@
 import React from "react";
 import { FaStar, FaStarHalfAlt } from "react-icons/fa";
 
-const ProductCard = ({ product, addToCart }) => {
+const ProductCard = ({ product, addToCart, isListView }) => {
   const { title, price, description, image, rating } = product;
 
   // Function to generate star icons based on the rating
@@ -31,27 +31,64 @@ const ProductCard = ({ product, addToCart }) => {
     return stars;
   };
   return (
-    <div className="max-w-xs bg-white shadow-lg rounded-lg overflow-hidden">
-      <img
-        className="w-full h-48 object-cover object-center"
-        src={image}
-        alt={title}
-      />
-      <div className="px-4 py-2">
-        <h2 className="text-gray-800 text-xl font-semibold">{title}</h2>
-        <p className="text-gray-600 mt-1">{description.slice(0, 20)}...</p>
-        <div className="flex items-center mt-2 mb-2">{renderRatingStars()}</div>
-        <span className="text-gray-700">({rating.count} Review)</span>
-        <div className="flex justify-between items-center mt-4">
-          <span className="text-red-500 font-bold">${price}</span>
-          <button
-            className="bg-[#212529] text-white px-3 py-1 rounded hover:bg-blue-600"
-            onClick={() => addToCart(product)}
-          >
-            Add to Cart
-          </button>
-        </div>
-      </div>
+    <div
+      className={`max-w-xs bg-white shadow-lg rounded-lg overflow-hidden ${
+        isListView ? "flex" : ""
+      }`}
+    >
+      {isListView ? (
+        <>
+          <div className="w-1/3">
+            <img
+              className="w-full h-auto object-cover object-center"
+              src={image}
+              alt={title}
+            />
+          </div>
+          <div className="w-2/3 px-4 py-2">
+            <h2 className="text-gray-800 text-xl font-semibold">{title}</h2>
+            <p className="text-gray-600 mt-1">{description}</p>
+            <div className="flex items-center mt-2 mb-2">
+              {renderRatingStars()}
+            </div>
+            <span className="text-gray-700">({rating.count} Review)</span>
+            <div className="flex justify-between items-center mt-4">
+              <span className="text-red-500 font-bold">${price}</span>
+              <button
+                className="bg-[#212529] text-white px-3 py-1 rounded hover:bg-blue-600"
+                onClick={() => addToCart(product)}
+              >
+                Add to Cart
+              </button>
+            </div>
+          </div>
+        </>
+      ) : (
+        <>
+          <img
+            className="w-full h-48 object-cover object-center"
+            src={image}
+            alt={title}
+          />
+          <div className="px-4 py-2">
+            <h2 className="text-gray-800 text-xl font-semibold">{title}</h2>
+            <p className="text-gray-600 mt-1">{description.slice(0, 20)}...</p>
+            <div className="flex items-center mt-2 mb-2">
+              {renderRatingStars()}
+            </div>
+            <span className="text-gray-700">({rating.count} Review)</span>
+            <div className="flex justify-between items-center mt-4">
+              <span className="text-red-500 font-bold">${price}</span>
+              <button
+                className="bg-[#212529] text-white px-3 py-1 rounded hover:bg-blue-600"
+                onClick={() => addToCart(product)}
+              >
+                Add to Cart
+              </button>
+            </div>
+          </div>
+        </>
+      )}
     </div>
   );
 };

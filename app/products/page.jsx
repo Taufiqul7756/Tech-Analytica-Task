@@ -5,7 +5,7 @@ import CartPage from "../cart/page";
 const ProductPage = () => {
   return (
     <div className="flex gap-2">
-      <div>
+      <div className="">
         <Products />
       </div>
       <div className="mt-[108px]">

@@ -5,14 +5,14 @@ import { useCart } from "../context/CartContext";
 import ProductCard from "./ProductCard";
 import { MdOutlineSkipNext } from "react-icons/md";
 import { MdOutlineSkipPrevious } from "react-icons/md";
-import { BsGrid3X3Gap } from "react-icons/bs";
-import { FaList } from "react-icons/fa";
 import Input from "./Input";
+import { FaList, FaTh } from "react-icons/fa";
 
 const Products = () => {
   const { products, isLoading, error } = useContext(ProductsContext);
   const { addToCart } = useCart();
   const [currentPage, setCurrentPage] = useState(1);
+  const [isListView, setIsListView] = useState(false);
   const productsPerPage = 6;
 
   console.log("All products:", products);
@@ -36,21 +36,38 @@ const Products = () => {
     <div>
       <div className="flex justify-between items-center mb-10 mt-10">
         <h1 className="text-xl font-bold">Our All Products</h1>
-        <div className="flex justify-center items-center gap-2 text-xl  ">
-          <BsGrid3X3Gap />
-          <FaList />
+        <div className="flex justify-center items-center gap-2 text-xl">
+          <FaTh
+            onClick={() => setIsListView(false)}
+            className={
+              !isListView ? "text-blue-500 cursor-pointer" : "cursor-pointer"
+            }
+          />
+          <FaList
+            onClick={() => setIsListView(true)}
+            className={
+              isListView ? "text-blue-500 cursor-pointer" : "cursor-pointer"
+            }
+          />
         </div>
       </div>
       <div className="mb-10">
         <Input placeholder="Search" />
       </div>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3 gap-4">
+      <div
+        className={
+          isListView
+            ? ""
+            : "grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3 gap-4"
+        }
+      >
         {currentProducts.map((product) => (
           <ProductCard
             key={product.id}
             product={product}
             addToCart={addToCart}
+            isListView={isListView}
           />
         ))}
       </div>
