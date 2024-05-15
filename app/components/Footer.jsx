@@ -1,32 +1,37 @@
 import Link from "next/link";
-
 import {
   FaFacebookF,
   FaTwitter,
   FaInstagram,
   FaLinkedin,
 } from "react-icons/fa";
+import Logo from "../../public/logo.png";
+import Image from "next/image";
 
 const Footer = () => {
   return (
-    <footer className="bg-[#212529] text-white py-12 ">
-      <div className="font-bold text-4xl px-16 mb-10">LOGO</div>
-      <div className="flex px-16">
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
+    <footer className="bg-[#212529] text-white py-12">
+      <div className="font-bold text-4xl mb-10 px-10">
+        <Link href="/">
+          <Image
+            src={Logo}
+            width={200}
+            height={200}
+            alt="Picture of the author"
+          />
+        </Link>
+      </div>
+      <div className="px-6 md:px-16">
+        <div className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-4 gap-8">
           {/* Column 1: Get In touch */}
-          <div className="grid mr-10">
-            <h4 className="text-lg font-lg mr-10 mb-5">
-              Got Question? Call us 24/7
-            </h4>
+          <div>
+            <h4 className="text-lg font-lg mb-5">Got Question? Call us 24/7</h4>
             <span className="font-bold mb-5">+02 055 4156</span>
-
             <p>Register now & get you 10%</p>
             <p>offer from first order!</p>
-
             <span className="mt-5">Join US</span>
-
             {/* social icon */}
-            <div className="flex text-xl mt-5 justify-start items-start  py-2 rounded-lg">
+            <div className="flex text-xl mt-5">
               <Link href="#" className="text-gray-200 hover:text-white mr-4">
                 <FaFacebookF />
               </Link>
@@ -43,7 +48,7 @@ const Footer = () => {
           </div>
 
           {/* Column 2: COMPANY */}
-          <div className="ml-10">
+          <div>
             <h4 className="text-lg font-bold mb-4">COMPANY</h4>
             <ul className="grid gap-5">
               <li>
@@ -65,7 +70,7 @@ const Footer = () => {
           </div>
 
           {/* Column 3: My Account */}
-          <div className="ml-10">
+          <div>
             <h4 className="text-lg font-bold mb-4">My Account</h4>
             <ul className="grid gap-5">
               <li>
@@ -87,9 +92,8 @@ const Footer = () => {
           </div>
 
           {/* Column 4: Customer Services */}
-          <div className="ml-20">
+          <div>
             <h4 className="text-lg font-bold mb-4">Customer Service</h4>
-
             <ul className="grid gap-5">
               <li>
                 <Link href="/about">Payment Methods</Link>

@@ -3,6 +3,8 @@
 import { useState, useEffect } from "react";
 import Link from "next/link";
 import { FaBars, FaTimes } from "react-icons/fa";
+import Logo from "../../public/logo.png";
+import Image from "next/image";
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -50,7 +52,12 @@ const Navbar = () => {
                 scrolling ? "white" : "black"
               } text-xl font-bold`}
             >
-              Logo
+              <Image
+                src={Logo}
+                width={200}
+                height={200}
+                alt="Picture of the author"
+              />
             </Link>
           </div>
           <div className="hidden md:block">
@@ -73,7 +80,7 @@ const Navbar = () => {
               </Link>
             </div>
           </div>
-          <div>
+          <div className="hidden sm:block ">
             <Link
               href="/login"
               className={`text-${
