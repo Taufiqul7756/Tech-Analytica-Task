@@ -66,7 +66,7 @@ const ProductCard = ({ product, addToCart, isListView }) => {
       ) : (
         <>
           <img
-            className="w-full h-48 object-cover object-center"
+            className="w-full h-48 object-fit object-contain"
             src={image}
             alt={title}
           />
