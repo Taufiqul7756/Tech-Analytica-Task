@@ -3,7 +3,7 @@ import Cart from "../components/Cart";
 
 const CartPage = () => {
   return (
-    <div>
+    <div className=" w-2/3 mx-auto flex justify-center">
       <Cart />
     </div>
   );

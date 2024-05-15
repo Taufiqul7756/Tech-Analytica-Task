@@ -23,7 +23,7 @@ const Products = () => {
   // Calculate pagination
   const indexOfLastProduct = currentPage * productsPerPage;
   const indexOfFirstProduct = indexOfLastProduct - productsPerPage;
-  const currentProducts = products.slice(
+  const currentProducts = products?.slice(
     indexOfFirstProduct,
     indexOfLastProduct
   );
@@ -33,7 +33,7 @@ const Products = () => {
   };
 
   return (
-    <div>
+    <div className="lg:px-10 md:px-8 sm:px-2">
       <div className="flex justify-between items-center mb-10 mt-10">
         <h1 className="text-xl font-bold">Our All Products</h1>
         <div className="flex justify-center items-center gap-2 text-xl">
@@ -59,7 +59,7 @@ const Products = () => {
         className={
           isListView
             ? ""
-            : "grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3 gap-4"
+            : "grid grid-cols-2 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3 gap-4"
         }
       >
         {currentProducts.map((product) => (
@@ -71,7 +71,7 @@ const Products = () => {
           />
         ))}
       </div>
-      <div className="mt-10 flex justify-end items-end mr-3">
+      <div className="mt-10 flex lg:justify-end md:justify-center md:items-center sm:justify-center sm:items-center mr-3">
         <nav>
           <ul className="pagination flex justify-center items-center gap-5 mb-5">
             <li className="page-item">
