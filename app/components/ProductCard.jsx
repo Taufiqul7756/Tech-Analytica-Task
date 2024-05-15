@@ -1,11 +1,10 @@
-// components/ProductCard.jsx
 import React from "react";
+import { useCart } from "../context/CartContext";
 import { FaStar, FaStarHalfAlt } from "react-icons/fa";
 
 const ProductCard = ({ product, addToCart, isListView }) => {
   const { title, price, description, image, rating } = product;
 
-  // Function to generate star icons based on the rating
   const renderRatingStars = () => {
     const stars = [];
     const roundedRating = Math.round(rating.rate * 2) / 2; // Round to the nearest half
@@ -30,6 +29,7 @@ const ProductCard = ({ product, addToCart, isListView }) => {
 
     return stars;
   };
+
   return (
     <div
       className={`max-w-xs bg-white shadow-lg rounded-lg overflow-hidden ${

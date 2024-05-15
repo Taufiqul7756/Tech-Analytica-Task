@@ -1,9 +1,12 @@
 import React from "react";
 import { FaTrash } from "react-icons/fa";
 import { useCart } from "../context/CartContext";
+import { renderRatingStars } from "../utils/utils";
 
 const Cart = () => {
   const { cart, removeFromCart } = useCart();
+
+  console.log("Cart data from cart.jsx: ", cart);
 
   return (
     <div className="flex flex-col items-center justify-start border-2 p-2">
@@ -25,15 +28,15 @@ const Cart = () => {
                 className="w-20 h-20 object-cover"
               />
               <div className="col-span-3">
-                <p className="font-bold">{product.title}</p>
+                <p className="font-bold">{product.title.slice(0, 25)}...</p>
                 <p className="text-sm text-gray-500">
-                  {product.description.slice(0, 50)}...
+                  {product.description.slice(0, 30)}...
                 </p>
                 <div className="flex items-center">
                   {renderRatingStars(product.rating)}
                   <span className="ml-1">{product.rating.count}</span>
                 </div>
-                <p className="text-gray-600">${product.price}</p>
+                <p className="text-red-500">${product.price}</p>
               </div>
               <button
                 onClick={() => removeFromCart(product.id)}
