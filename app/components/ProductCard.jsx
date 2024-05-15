@@ -1,5 +1,4 @@
 import React from "react";
-import { useCart } from "../context/CartContext";
 import { FaStar, FaStarHalfAlt } from "react-icons/fa";
 
 const ProductCard = ({ product, addToCart, isListView }) => {

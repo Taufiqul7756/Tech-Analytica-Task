@@ -1,3 +1,4 @@
+"use client";
 import React from "react";
 import { FaTrash } from "react-icons/fa";
 import { useCart } from "../context/CartContext";
