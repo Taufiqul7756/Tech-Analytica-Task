@@ -1,6 +1,7 @@
 import React from "react";
 import Products from "../components/Products";
 import CartPage from "../cart/page";
+import Cart from "../components/Cart";
 
 const ProductPage = () => {
   return (
@@ -9,7 +10,7 @@ const ProductPage = () => {
         <Products />
       </div>
       <div className="hidden md:block mt-[108px]">
-        <CartPage />
+        <Cart />
       </div>
     </div>
   );

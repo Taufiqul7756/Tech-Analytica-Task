@@ -7,8 +7,6 @@ import {
   FaLinkedin,
 } from "react-icons/fa";
 
-import map from "../images/map.png";
-
 const Footer = () => {
   return (
     <footer className="bg-[#212529] text-white py-12 ">
