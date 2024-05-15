@@ -8,7 +8,7 @@ const ProductPage = () => {
       <div>
         <Products />
       </div>
-      <div>
+      <div className="mt-[108px]">
         <CartPage />
       </div>
     </div>

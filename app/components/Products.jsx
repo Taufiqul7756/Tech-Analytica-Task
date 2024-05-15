@@ -5,6 +5,9 @@ import { useCart } from "../context/CartContext";
 import ProductCard from "./ProductCard";
 import { MdOutlineSkipNext } from "react-icons/md";
 import { MdOutlineSkipPrevious } from "react-icons/md";
+import { BsGrid3X3Gap } from "react-icons/bs";
+import { FaList } from "react-icons/fa";
+import Input from "./Input";
 
 const Products = () => {
   const { products, isLoading, error } = useContext(ProductsContext);
@@ -31,6 +34,17 @@ const Products = () => {
 
   return (
     <div>
+      <div className="flex justify-between items-center mb-10 mt-10">
+        <h1 className="text-xl font-bold">Our All Products</h1>
+        <div className="flex justify-center items-center gap-2 text-xl  ">
+          <BsGrid3X3Gap />
+          <FaList />
+        </div>
+      </div>
+      <div className="mb-10">
+        <Input placeholder="Search" />
+      </div>
+
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3 gap-4">
         {currentProducts.map((product) => (
           <ProductCard
