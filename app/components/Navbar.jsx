@@ -3,7 +3,7 @@
 import { useState, useEffect } from "react";
 import Link from "next/link";
 import { FaBars, FaTimes } from "react-icons/fa";
-import Logo from "../../public/logo.png";
+import Logo from "../../public/logormv.png";
 import Image from "next/image";
 
 const Navbar = () => {
@@ -39,7 +39,7 @@ const Navbar = () => {
     <nav
       className={`fixed w-full z-10 ${
         scrolling
-          ? "bg-[#212529]"
+          ? "bg-[#212529] py-1"
           : "bg-transparent backdrop-blur-sm shadow-md "
       }`}
     >

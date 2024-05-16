@@ -52,7 +52,7 @@ const Products = () => {
         </div>
       </div>
       <div className="mb-10">
-        <Input placeholder="Search" />
+        <Input placeholder="Search An Item" />
       </div>
 
       <div

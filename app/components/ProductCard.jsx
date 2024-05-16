@@ -32,21 +32,23 @@ const ProductCard = ({ product, addToCart, isListView }) => {
   return (
     <div
       className={`max-w-xs bg-white shadow-lg rounded-lg overflow-hidden ${
-        isListView ? "flex" : ""
+        isListView ? "list-card " : ""
       }`}
     >
       {isListView ? (
         <>
           <div className="w-1/3">
             <img
-              className="w-full h-auto object-cover object-center"
+              className="w-full h-48 object-fit object-contain"
               src={image}
               alt={title}
             />
           </div>
-          <div className="w-2/3 px-4 py-2">
-            <h2 className="text-gray-800 text-xl font-semibold">{title}</h2>
-            <p className="text-gray-600 mt-1">{description}</p>
+          <div className="w-2/3 px-4 py-2 ">
+            <h2 className="text-gray-800 text-xl font-semibold">
+              {title.slice(0, 50)} ...
+            </h2>
+            <p className="text-gray-600 mt-1">{description.slice(0, 70)}...</p>
             <div className="flex items-center mt-2 mb-2">
               {renderRatingStars()}
             </div>
@@ -70,8 +72,10 @@ const ProductCard = ({ product, addToCart, isListView }) => {
             alt={title}
           />
           <div className="px-4 py-2">
-            <h2 className="text-gray-800 text-xl font-semibold">{title}</h2>
-            <p className="text-gray-600 mt-1">{description.slice(0, 20)}...</p>
+            <h2 className="text-gray-800 text-xl font-semibold">
+              {title.slice(0, 20)}
+            </h2>
+            <p className="text-gray-600 mt-1">{description.slice(0, 30)}...</p>
             <div className="flex items-center mt-2 mb-2">
               {renderRatingStars()}
             </div>

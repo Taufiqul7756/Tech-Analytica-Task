@@ -11,12 +11,12 @@ const Cart = () => {
   console.log("Cart data from cart.jsx: ", cart);
 
   return (
-    <div className="flex flex-col items-center justify-start border-2 p-2">
+    <div className="flex flex-col items-center justify-start border-2 p-2 mb-20">
       <div className="text-2xl font-bold mb-4 bg-black w-full flex justify-center items-center text-white">
         Selected Products
       </div>
       {cart.length === 0 ? (
-        <p>Your cart is empty.</p>
+        <p className="py-10">Your cart is empty.</p>
       ) : (
         <>
           <div className="grid gap-4">
@@ -51,7 +51,7 @@ const Cart = () => {
             ))}
           </div>
           <div className="flex justify-end mt-10 ">
-            <div className="text-lg font-semibold xl:ml-72 lg:ml-60 md:ml-48">
+            <div className="text-lg font-semibold xl:ml-32 lg:ml-24 md:ml-10">
               TOTAL: ${total.toFixed(2)}
             </div>
           </div>
