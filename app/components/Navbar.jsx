@@ -5,8 +5,10 @@ import Link from "next/link";
 import { FaBars, FaTimes } from "react-icons/fa";
 import Logo from "../../public/logormv.png";
 import Image from "next/image";
+import { usePathname } from "next/navigation";
 
 const Navbar = () => {
+  const pathname = usePathname();
   const [isOpen, setIsOpen] = useState(false);
   const [scrolling, setScrolling] = useState(true);
 
@@ -59,13 +61,17 @@ const Navbar = () => {
             <div className="ml-10 flex items-baseline space-x-4">
               <Link
                 href="/"
-                className={`text-white hover:text-white px-3 py-2 rounded-md text-sm font-medium`}
+                className={`text-white hover:text-white px-3 py-2 text-sm font-medium ${
+                  pathname === "/" ? " border-b-2" : ""
+                }`}
               >
                 PRODUCTS
               </Link>
               <Link
                 href="/cart"
-                className={`text-white hover:text-white px-3 py-2 rounded-md text-sm font-medium`}
+                className={`text-white hover:text-white px-3 py-2  text-sm font-medium ${
+                  pathname === "/cart" ? " border-b-2" : ""
+                }`}
               >
                 CART
               </Link>
