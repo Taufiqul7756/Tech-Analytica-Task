@@ -12,18 +12,18 @@ const Cart = () => {
 
   return (
     <div className="flex flex-col items-center justify-start border-2 p-2 mb-20">
-      <div className="text-xl font-bold mb-4 bg-black w-full flex justify-center items-center text-white">
+      <div className="text-sm py-1 rounded-md font-bold mb-4 bg-black w-full flex justify-center items-center text-white">
         SELECTED PRODUCTS
       </div>
       {cart.length === 0 ? (
         <p className="py-10">Your cart is empty.</p>
       ) : (
         <>
-          <div className="grid gap-4">
+          <div className="grid gap-4  ">
             {cart.map((product) => (
               <div
                 key={product.id}
-                className="grid grid-cols-5 gap-2 items-center"
+                className="grid grid-cols-5 gap-2 items-center bg-[#F7F8F8] p-2"
               >
                 <img
                   src={product.image}
@@ -67,9 +67,11 @@ const Cart = () => {
         </label>
       </div>
 
-      <button className="bg-black text-white py-2 text-sm px-4 mt-4 rounded">
-        CHECKOUT
-      </button>
+      <div className="ml-56 ">
+        <button className="bg-black text-white py-2 text-sm px-4 mt-4 rounded">
+          CHECKOUT
+        </button>
+      </div>
     </div>
   );
 };

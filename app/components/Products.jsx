@@ -40,7 +40,7 @@ const Products = () => {
   };
 
   return (
-    <div className="lg:px-10 md:px-8 sm:px-2">
+    <div className="lg:px-10 md:px-8 sm:px-0">
       <div className="flex justify-between items-center mb-10 mt-10">
         <h1 className="text-xl font-bold">Our All Products</h1>
         <div className="flex justify-center items-center gap-2 text-xl">

@@ -31,7 +31,7 @@ const ProductCard = ({ product, addToCart, isListView }) => {
 
   return (
     <div
-      className={`max-w-xs bg-white shadow-lg rounded-lg overflow-hidden ${
+      className={`max-w-xs bg-[#F7F8F8] shadow-lg rounded-lg overflow-hidden ${
         isListView ? "list-card " : ""
       }`}
     >
