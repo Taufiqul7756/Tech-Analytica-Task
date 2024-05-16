@@ -16,7 +16,7 @@ const Products = () => {
   const productsPerPage = 6;
   const [searchTerm, setSearchTerm] = useState("");
 
-  const filteredProducts = products.filter((product) =>
+  const filteredProducts = products?.filter((product) =>
     product.title.toLowerCase().includes(searchTerm.toLowerCase())
   );
 

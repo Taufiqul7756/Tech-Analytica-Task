@@ -58,10 +58,10 @@ const Navbar = () => {
             </Link>
           </div>
           <div className="hidden md:block">
-            <div className="ml-10 flex items-baseline space-x-4">
+            <div className="ml-10 flex items-baseline space-x-4 gap-5">
               <Link
                 href="/"
-                className={`text-white hover:text-white px-3 py-2 text-sm font-medium ${
+                className={`text-white hover:text-white  py-2 text-sm font-medium ${
                   pathname === "/" ? " border-b-2" : ""
                 }`}
               >
@@ -69,7 +69,7 @@ const Navbar = () => {
               </Link>
               <Link
                 href="/cart"
-                className={`text-white hover:text-white px-3 py-2  text-sm font-medium ${
+                className={`text-white hover:text-white  py-2  text-sm font-medium ${
                   pathname === "/cart" ? " border-b-2" : ""
                 }`}
               >
@@ -108,7 +108,9 @@ const Navbar = () => {
               href="/"
               className={`text-${
                 scrolling ? "white" : "black"
-              } hover:text-white bg-slate-400 block px-3 py-2 rounded-md text-base font-medium`}
+              } hover:text-white bg-slate-400 block px-3 py-2 rounded-md text-base font-medium ${
+                pathname === "/" ? " border-b-4" : ""
+              }`}
             >
               Products
             </Link>
@@ -117,7 +119,9 @@ const Navbar = () => {
               href="/cart"
               className={`text-${
                 scrolling ? "white" : "black"
-              } hover:text-white bg-slate-400 block px-3 py-2 rounded-md text-base font-medium`}
+              } hover:text-white bg-slate-400 block px-3 py-2 rounded-md text-base font-medium ${
+                pathname === "/cart" ? " border-b-4" : ""
+              }`}
             >
               Cart
             </Link>
