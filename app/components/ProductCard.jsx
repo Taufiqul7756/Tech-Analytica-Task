@@ -1,5 +1,6 @@
 import React from "react";
 import { FaStar, FaStarHalfAlt } from "react-icons/fa";
+import { toast } from "react-hot-toast";
 
 const ProductCard = ({ product, addToCart, isListView }) => {
   const { title, price, description, image, rating } = product;
@@ -27,6 +28,11 @@ const ProductCard = ({ product, addToCart, isListView }) => {
     }
 
     return stars;
+  };
+
+  const handleAddToCart = () => {
+    addToCart(product);
+    toast.success("Product added to cart successfully!");
   };
 
   return (
@@ -57,7 +63,7 @@ const ProductCard = ({ product, addToCart, isListView }) => {
               <span className="text-red-500 font-bold">${price}</span>
               <button
                 className="bg-[#212529] text-white px-3 py-1 rounded hover:bg-blue-600"
-                onClick={() => addToCart(product)}
+                onClick={() => handleAddToCart()}
               >
                 Add to Cart
               </button>
@@ -76,15 +82,15 @@ const ProductCard = ({ product, addToCart, isListView }) => {
               {title.slice(0, 20)}
             </h2>
             <p className="text-gray-600 mt-1">{description.slice(0, 30)}...</p>
-            <div className="flex items-center mt-2 mb-2">
+            <div className="flex items-center mt-4 mb-1">
               {renderRatingStars()}
             </div>
-            <span className="text-gray-700">({rating.count} Review)</span>
+            <span className="text-[#ADB0B7]">({rating.count} Review)</span>
             <div className="flex justify-between items-center mt-4">
               <span className="text-red-500 font-bold">${price}</span>
               <button
                 className="bg-[#212529] text-white px-3 py-1 rounded hover:bg-[#525CEB]"
-                onClick={() => addToCart(product)}
+                onClick={() => handleAddToCart()}
               >
                 Add to Cart
               </button>

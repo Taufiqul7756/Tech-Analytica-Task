@@ -3,12 +3,18 @@ import React from "react";
 import { FaTrash } from "react-icons/fa";
 import { useCart } from "../context/CartContext";
 import { renderRatingStars } from "../utils/utils";
+import { toast } from "react-hot-toast";
 
 const Cart = () => {
   const { cart, removeFromCart } = useCart();
   const total = cart.reduce((acc, product) => acc + product.price, 0);
 
   console.log("Cart data from cart.jsx: ", cart);
+
+  const handleRemoveFromCart = (productId) => {
+    removeFromCart(productId);
+    toast.error("Product removed from cart"); // Trigger a toast when removing a product
+  };
 
   return (
     <div className="flex flex-col items-center justify-start border-2 p-2 mb-20">
@@ -35,14 +41,16 @@ const Cart = () => {
                   <p className="text-sm text-gray-500">
                     {product.description?.slice(0, 30)}...
                   </p>
-                  <div className="flex items-center">
+                  <div className="flex items-center mb-2 mt-2">
                     {renderRatingStars(product.rating)}
-                    <span className="ml-1">{product.rating.count}</span>
                   </div>
+                  <span className="ml-1 text-[#ADB0B7]">
+                    ({product.rating.count} Reviews)
+                  </span>
                   <p className="text-red-500">${product.price}</p>
                 </div>
                 <button
-                  onClick={() => removeFromCart(product.id)}
+                  onClick={() => handleRemoveFromCart(product.id)}
                   className="col-span-1 text-red-500"
                 >
                   <FaTrash />
