@@ -9,23 +9,16 @@ import Input from "./Input";
 import { FaList, FaTh } from "react-icons/fa";
 
 const Products = () => {
-  const { products, isLoading, error } = useContext(ProductsContext);
+  const { products } = useContext(ProductsContext);
   const { addToCart } = useCart();
   const [currentPage, setCurrentPage] = useState(1);
   const [isListView, setIsListView] = useState(false);
   const productsPerPage = 6;
   const [searchTerm, setSearchTerm] = useState("");
 
-  console.log("All products:", products);
-
-  if (isLoading) return <div> Loading ...</div>;
-  if (error) return <div> Error: {error.message}</div>;
-
   const filteredProducts = products.filter((product) =>
     product.title.toLowerCase().includes(searchTerm.toLowerCase())
   );
-
-  console.log("filteredProducts", filteredProducts);
 
   // Calculate pagination
   const indexOfLastProduct = currentPage * productsPerPage;
@@ -40,7 +33,7 @@ const Products = () => {
   };
 
   return (
-    <div className="lg:px-10 md:px-8 sm:px-0">
+    <div className="lg:px-10 md:px-8 sm:px-2">
       <div className="flex justify-between items-center mb-10 mt-10">
         <h1 className="text-xl font-bold">Our All Products</h1>
         <div className="flex justify-center items-center gap-2 text-xl">
