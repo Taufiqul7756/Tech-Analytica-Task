@@ -40,18 +40,13 @@ const Navbar = () => {
       className={`fixed w-full z-10 ${
         scrolling
           ? "bg-[#212529] py-1"
-          : "bg-transparent backdrop-blur-sm shadow-md "
+          : "bg-[#212529] backdrop-blur-sm shadow-md "
       }`}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16">
           <div className="flex-shrink-0">
-            <Link
-              href="/"
-              className={`text-${
-                scrolling ? "white" : "black"
-              } text-xl font-bold`}
-            >
+            <Link href="/" className="text-xl font-bold">
               <Image
                 src={Logo}
                 width={200}
@@ -64,28 +59,22 @@ const Navbar = () => {
             <div className="ml-10 flex items-baseline space-x-4">
               <Link
                 href="/"
-                className={`text-${
-                  scrolling ? "white" : "black"
-                } hover:text-white px-3 py-2 rounded-md text-sm font-medium`}
+                className={`text-white hover:text-white px-3 py-2 rounded-md text-sm font-medium`}
               >
-                Products
+                PRODUCTS
               </Link>
               <Link
                 href="/cart"
-                className={`text-${
-                  scrolling ? "white" : "black"
-                } hover:text-white px-3 py-2 rounded-md text-sm font-medium`}
+                className={`text-white hover:text-white px-3 py-2 rounded-md text-sm font-medium`}
               >
-                Cart
+                CART
               </Link>
             </div>
           </div>
           <div className="hidden sm:block ">
             <Link
               href="/login"
-              className={`text-${
-                scrolling ? "white" : "black"
-              } hover:text-white bg-blue-600 px-4 py-2 rounded-md text-sm font-medium`}
+              className={`text-white hover:text-white bg-[#525CEB] px-4 py-2 rounded-md text-sm font-medium`}
             >
               LOGIN
             </Link>

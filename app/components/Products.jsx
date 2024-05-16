@@ -14,16 +14,23 @@ const Products = () => {
   const [currentPage, setCurrentPage] = useState(1);
   const [isListView, setIsListView] = useState(false);
   const productsPerPage = 6;
+  const [searchTerm, setSearchTerm] = useState("");
 
   console.log("All products:", products);
 
   if (isLoading) return <div> Loading ...</div>;
   if (error) return <div> Error: {error.message}</div>;
 
+  const filteredProducts = products.filter((product) =>
+    product.title.toLowerCase().includes(searchTerm.toLowerCase())
+  );
+
+  console.log("filteredProducts", filteredProducts);
+
   // Calculate pagination
   const indexOfLastProduct = currentPage * productsPerPage;
   const indexOfFirstProduct = indexOfLastProduct - productsPerPage;
-  const currentProducts = products?.slice(
+  const currentProducts = filteredProducts?.slice(
     indexOfFirstProduct,
     indexOfLastProduct
   );
@@ -40,38 +47,46 @@ const Products = () => {
           <FaTh
             onClick={() => setIsListView(false)}
             className={
-              !isListView ? "text-blue-500 cursor-pointer" : "cursor-pointer"
+              !isListView ? "text-[#525CEB] cursor-pointer" : "cursor-pointer"
             }
           />
           <FaList
             onClick={() => setIsListView(true)}
             className={
-              isListView ? "text-blue-500 cursor-pointer" : "cursor-pointer"
+              isListView ? "text-[#525CEB] cursor-pointer" : "cursor-pointer"
             }
           />
         </div>
       </div>
       <div className="mb-10">
-        <Input placeholder="Search An Item" />
+        <Input
+          placeholder="Search An Item"
+          value={searchTerm}
+          onChange={(e) => setSearchTerm(e.target.value)}
+        />
       </div>
 
-      <div
-        className={
-          isListView
-            ? ""
-            : "grid grid-cols-2 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3 gap-4"
-        }
-      >
-        {currentProducts.map((product) => (
-          <ProductCard
-            key={product.id}
-            product={product}
-            addToCart={addToCart}
-            isListView={isListView}
-          />
-        ))}
-      </div>
-      <div className="mt-10 flex lg:justify-end md:justify-center md:items-center sm:justify-center sm:items-center mr-3">
+      {filteredProducts.length === 0 ? (
+        <div className="text-center text-gray-600">No products found.</div>
+      ) : (
+        <div
+          className={
+            isListView
+              ? ""
+              : "grid grid-cols-2 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3 gap-4"
+          }
+        >
+          {currentProducts.map((product) => (
+            <ProductCard
+              key={product.id}
+              product={product}
+              addToCart={addToCart}
+              isListView={isListView}
+            />
+          ))}
+        </div>
+      )}
+      <div className="mt-10 mb-10 flex lg:justify-end md:justify-center md:items-center sm:justify-center sm:items-center mr-3">
         <nav>
           <ul className="pagination flex justify-center items-center gap-5 mb-5">
             <li className="page-item">
@@ -81,11 +96,13 @@ const Products = () => {
                 }
                 disabled={currentPage === 1}
               >
-                <MdOutlineSkipPrevious className="text-2xl" />
+                <MdOutlineSkipPrevious className="text-xl" />
               </button>
             </li>
             {[
-              ...Array(Math.ceil(products.length / productsPerPage)).keys(),
+              ...Array(
+                Math.ceil(filteredProducts.length / productsPerPage)
+              ).keys(),
             ].map((pageNumber) => (
               <li
                 key={pageNumber}
@@ -104,16 +121,18 @@ const Products = () => {
               <button
                 onClick={() =>
                   paginate(
-                    currentPage === Math.ceil(products.length / productsPerPage)
+                    currentPage ===
+                      Math.ceil(filteredProducts.length / productsPerPage)
                       ? currentPage
                       : currentPage + 1
                   )
                 }
                 disabled={
-                  currentPage === Math.ceil(products.length / productsPerPage)
+                  currentPage ===
+                  Math.ceil(filteredProducts.length / productsPerPage)
                 }
               >
-                <MdOutlineSkipNext className="text-2xl" />
+                <MdOutlineSkipNext className="text-xl" />
               </button>
             </li>
           </ul>

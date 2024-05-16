@@ -12,8 +12,8 @@ const Cart = () => {
 
   return (
     <div className="flex flex-col items-center justify-start border-2 p-2 mb-20">
-      <div className="text-2xl font-bold mb-4 bg-black w-full flex justify-center items-center text-white">
-        Selected Products
+      <div className="text-xl font-bold mb-4 bg-black w-full flex justify-center items-center text-white">
+        SELECTED PRODUCTS
       </div>
       {cart.length === 0 ? (
         <p className="py-10">Your cart is empty.</p>
@@ -62,8 +62,8 @@ const Cart = () => {
         <input type="checkbox" className="mr-2" />
         <label htmlFor="terms" className="text-sm text-gray-600">
           I have read and agree to the{" "}
-          <span className="underline">terms and conditions</span> ,{" "}
-          <span className="underline">refund policy</span>
+          <span className="underline cursor-pointer">terms and conditions</span>{" "}
+          , <span className="underline cursor-pointer">refund policy</span>
         </label>
       </div>
 

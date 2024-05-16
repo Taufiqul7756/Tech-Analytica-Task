@@ -83,7 +83,7 @@ const ProductCard = ({ product, addToCart, isListView }) => {
             <div className="flex justify-between items-center mt-4">
               <span className="text-red-500 font-bold">${price}</span>
               <button
-                className="bg-[#212529] text-white px-3 py-1 rounded hover:bg-blue-600"
+                className="bg-[#212529] text-white px-3 py-1 rounded hover:bg-[#525CEB]"
                 onClick={() => addToCart(product)}
               >
                 Add to Cart

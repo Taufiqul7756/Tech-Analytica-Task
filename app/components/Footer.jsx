@@ -26,10 +26,10 @@ const Footer = () => {
           {/* Column 1: Get In touch */}
           <div>
             <h4 className="text-lg font-lg mb-5">Got Question? Call us 24/7</h4>
-            <span className="font-bold mb-5">+02 055 4156</span>
-            <p>Register now & get you 10%</p>
-            <p>offer from first order!</p>
-            <span className="mt-5">Join US</span>
+            <span className="font-bold ">+02 055 4156</span>
+            <p className="mt-5">Register now & get you 10%</p>
+            <p className="mb-5">offer from first order!</p>
+            <span className="">Join US</span>
             {/* social icon */}
             <div className="flex text-xl mt-5">
               <Link href="#" className="text-gray-200 hover:text-white mr-4">
@@ -39,17 +39,17 @@ const Footer = () => {
                 <FaTwitter />
               </Link>
               <Link href="#" className="text-gray-200 hover:text-white mr-4">
-                <FaInstagram />
-              </Link>
-              <Link href="#" className="text-gray-200 hover:text-white">
                 <FaLinkedin />
+              </Link>
+              <Link href="#" className="text-gray-200 hover:text-white ">
+                <FaInstagram />
               </Link>
             </div>
           </div>
 
           {/* Column 2: COMPANY */}
           <div>
-            <h4 className="text-lg font-bold mb-4">COMPANY</h4>
+            <h4 className="text-lg font-bold mb-4">Company</h4>
             <ul className="grid gap-5">
               <li>
                 <Link href="/faq">About Us</Link>
