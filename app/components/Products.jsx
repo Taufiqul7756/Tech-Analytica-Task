@@ -10,7 +10,7 @@ import { FaList, FaTh } from "react-icons/fa";
 
 const Products = () => {
   const { products } = useContext(ProductsContext);
-  const { addToCart } = useCart();
+  const { cart, addToCart } = useCart();
   const [currentPage, setCurrentPage] = useState(1);
   const [isListView, setIsListView] = useState(false);
   const productsPerPage = 6;
@@ -75,6 +75,7 @@ const Products = () => {
               product={product}
               addToCart={addToCart}
               isListView={isListView}
+              cart={cart}
             />
           ))}
         </div>

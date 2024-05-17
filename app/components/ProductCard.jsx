@@ -2,7 +2,7 @@ import React from "react";
 import { FaStar, FaStarHalfAlt } from "react-icons/fa";
 import { toast } from "react-hot-toast";
 
-const ProductCard = ({ product, addToCart, isListView }) => {
+const ProductCard = ({ product, addToCart, isListView, cart }) => {
   const { title, price, description, image, rating } = product;
 
   const renderRatingStars = () => {
@@ -31,8 +31,13 @@ const ProductCard = ({ product, addToCart, isListView }) => {
   };
 
   const handleAddToCart = () => {
-    addToCart(product);
-    toast.success("Product added to cart successfully!");
+    const isProductInCart = cart.some((item) => item.id === product.id);
+    if (isProductInCart) {
+      toast.error("This product is already in the cart");
+    } else {
+      addToCart(product);
+      toast.success("Product added to cart successfully!");
+    }
   };
 
   return (
@@ -63,7 +68,7 @@ const ProductCard = ({ product, addToCart, isListView }) => {
               <span className="text-red-600 font-bold">${price}</span>
               <button
                 className="bg-[#212529] text-white px-3 py-1 rounded hover:bg-blue-600"
-                onClick={() => handleAddToCart()}
+                onClick={handleAddToCart}
               >
                 Add to Cart
               </button>
@@ -90,7 +95,7 @@ const ProductCard = ({ product, addToCart, isListView }) => {
               <span className="text-red-600 font-bold">${price}</span>
               <button
                 className="bg-[#212529] text-white px-3 py-1 rounded hover:bg-[#525CEB]"
-                onClick={() => handleAddToCart()}
+                onClick={handleAddToCart}
               >
                 Add to Cart
               </button>
