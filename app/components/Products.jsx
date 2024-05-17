@@ -70,13 +70,19 @@ const Products = () => {
           }
         >
           {currentProducts.map((product) => (
-            <ProductCard
+            <div
               key={product.id}
-              product={product}
-              addToCart={addToCart}
-              isListView={isListView}
-              cart={cart}
-            />
+              className={`transition-all duration-1000 ${
+                isListView ? "animate-fadeIn" : "animate-scaleIn"
+              }`}
+            >
+              <ProductCard
+                product={product}
+                addToCart={addToCart}
+                isListView={isListView}
+                cart={cart}
+              />
+            </div>
           ))}
         </div>
       )}

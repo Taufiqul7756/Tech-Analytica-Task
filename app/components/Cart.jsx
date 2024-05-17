@@ -29,7 +29,7 @@ const Cart = () => {
   };
 
   return (
-    <div className="flex flex-col items-center justify-start border-2 p-2 mb-20">
+    <div className="flex flex-col items-center justify-start border-2 p-2 mb-20 rounded-md">
       <div className="text-sm py-1 rounded-md font-bold mb-4 bg-black w-full flex justify-center items-center text-white">
         SELECTED PRODUCTS
       </div>
