@@ -5,7 +5,7 @@ import { Toaster } from "react-hot-toast";
 const CartPage = () => {
   return (
     <div className=" w-2/3 mx-auto flex justify-center">
-      <Toaster />
+      <Toaster position="bottom-right" />
       <Cart />
     </div>
   );
