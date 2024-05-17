@@ -59,7 +59,9 @@ const Cart = () => {
                   <span className="ml-1 text-[#424243]">
                     ({product.rating.count} Reviews)
                   </span>
-                  <p className="text-red-600">${product.price}</p>
+                  <p className="text-red-600 font-bold mt-3">
+                    ${product.price}
+                  </p>
                 </div>
                 <button
                   onClick={() => handleRemoveFromCart(product.id)}
