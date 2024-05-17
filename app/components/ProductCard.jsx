@@ -91,10 +91,10 @@ const ProductCard = ({ product, addToCart, isListView, cart }) => {
               {renderRatingStars()}
             </div>
             <span className="text-[#424243]">({rating.count} Review)</span>
-            <div className="flex justify-between items-center mt-4">
+            <div className="mt-4 grid grid-cols-1 gap-2 sm:flex sm:justify-between sm:items-center ">
               <span className="text-red-600 font-bold">${price}</span>
               <button
-                className="bg-[#212529] text-white px-3 py-1 rounded hover:bg-[#525CEB]"
+                className="bg-[#212529] text-white px-3 py-1 rounded hover:bg-[#525CEB] sm:w-auto w-28"
                 onClick={handleAddToCart}
               >
                 Add to Cart
