@@ -1,5 +1,5 @@
 "use client";
-import React from "react";
+import React, { useState } from "react";
 import { FaTrash } from "react-icons/fa";
 import { useCart } from "../context/CartContext";
 import { renderRatingStars } from "../utils/utils";
@@ -7,13 +7,27 @@ import { toast } from "react-hot-toast";
 
 const Cart = () => {
   const { cart, removeFromCart } = useCart();
+  const [isChecked, setIsChecked] = useState(false);
   const total = cart.reduce((acc, product) => acc + product.price, 0);
 
   console.log("Cart data from cart.jsx: ", cart);
 
   const handleRemoveFromCart = (productId) => {
     removeFromCart(productId);
-    toast.error("Product removed from cart"); // Trigger a toast when removing a product
+    toast.error("Product removed from cart");
+  };
+
+  const handleCheckout = () => {
+    if (cart.length === 0) {
+      toast.error("Your cart is empty");
+      return;
+    }
+    if (!isChecked) {
+      toast.error("You must agree to the terms and conditions");
+      return;
+    }
+
+    toast.success("Proceeding to checkout");
   };
 
   return (
@@ -67,7 +81,12 @@ const Cart = () => {
       )}
 
       <div className="mt-4">
-        <input type="checkbox" className="mr-2" />
+        <input
+          type="checkbox"
+          className="mr-2"
+          checked={isChecked}
+          onChange={() => setIsChecked(!isChecked)}
+        />
         <label htmlFor="terms" className="text-sm text-gray-600">
           I have read and agree to the{" "}
           <span className="underline cursor-pointer">terms and conditions</span>{" "}
@@ -76,7 +95,10 @@ const Cart = () => {
       </div>
 
       <div className="ml-56 ">
-        <button className="bg-black text-white py-2 text-sm px-4 mt-4 rounded">
+        <button
+          onClick={handleCheckout}
+          className="bg-black text-white py-2 text-sm px-4 mt-4 rounded"
+        >
           CHECKOUT
         </button>
       </div>
