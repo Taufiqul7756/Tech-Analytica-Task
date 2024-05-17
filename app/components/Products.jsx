@@ -88,6 +88,8 @@ const Products = () => {
                   paginate(currentPage === 1 ? 1 : currentPage - 1)
                 }
                 disabled={currentPage === 1}
+                type="submit"
+                value="prev"
               >
                 <MdOutlineSkipPrevious className="text-xl" />
               </button>
@@ -124,6 +126,8 @@ const Products = () => {
                   currentPage ===
                   Math.ceil(filteredProducts.length / productsPerPage)
                 }
+                type="submit"
+                value="next"
               >
                 <MdOutlineSkipNext className="text-xl" />
               </button>

@@ -58,9 +58,9 @@ const ProductCard = ({ product, addToCart, isListView }) => {
             <div className="flex items-center mt-2 mb-2">
               {renderRatingStars()}
             </div>
-            <span className="text-gray-700">({rating.count} Review)</span>
+            <span className="text-[#424243]">({rating.count} Review)</span>
             <div className="flex justify-between items-center mt-4">
-              <span className="text-red-500 font-bold">${price}</span>
+              <span className="text-red-600 font-bold">${price}</span>
               <button
                 className="bg-[#212529] text-white px-3 py-1 rounded hover:bg-blue-600"
                 onClick={() => handleAddToCart()}
@@ -85,9 +85,9 @@ const ProductCard = ({ product, addToCart, isListView }) => {
             <div className="flex items-center mt-4 mb-1">
               {renderRatingStars()}
             </div>
-            <span className="text-[#ADB0B7]">({rating.count} Review)</span>
+            <span className="text-[#424243]">({rating.count} Review)</span>
             <div className="flex justify-between items-center mt-4">
-              <span className="text-red-500 font-bold">${price}</span>
+              <span className="text-red-600 font-bold">${price}</span>
               <button
                 className="bg-[#212529] text-white px-3 py-1 rounded hover:bg-[#525CEB]"
                 onClick={() => handleAddToCart()}

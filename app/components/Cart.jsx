@@ -58,10 +58,10 @@ const Cart = () => {
                   <div className="flex items-center mb-2 mt-2">
                     {renderRatingStars(product.rating)}
                   </div>
-                  <span className="ml-1 text-[#ADB0B7]">
+                  <span className="ml-1 text-[#424243]">
                     ({product.rating.count} Reviews)
                   </span>
-                  <p className="text-red-500">${product.price}</p>
+                  <p className="text-red-600">${product.price}</p>
                 </div>
                 <button
                   onClick={() => handleRemoveFromCart(product.id)}
@@ -80,10 +80,9 @@ const Cart = () => {
         </>
       )}
 
-      <div className="mt-4">
+      <div className="mt-4 flex justify-center items-baseline gap-2">
         <input
           type="checkbox"
-          className="mr-2"
           checked={isChecked}
           onChange={() => setIsChecked(!isChecked)}
         />
