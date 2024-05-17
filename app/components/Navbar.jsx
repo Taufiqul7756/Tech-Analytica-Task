@@ -6,11 +6,14 @@ import { FaBars, FaTimes } from "react-icons/fa";
 import Logo from "../../public/logormv.png";
 import Image from "next/image";
 import { usePathname } from "next/navigation";
+import { useCart } from "../context/CartContext";
 
 const Navbar = () => {
   const pathname = usePathname();
   const [isOpen, setIsOpen] = useState(false);
   const [scrolling, setScrolling] = useState(true);
+  const { cart } = useCart();
+  const cartCount = cart.length;
 
   const toggleNavbar = () => {
     setIsOpen(!isOpen);
@@ -73,7 +76,7 @@ const Navbar = () => {
                   pathname === "/cart" ? " border-b-2" : ""
                 }`}
               >
-                CART
+                CART {cartCount > 0 && `(${cartCount})`}
               </Link>
             </div>
           </div>
