@@ -10,8 +10,6 @@ const Cart = () => {
   const [isChecked, setIsChecked] = useState(false);
   const total = cart.reduce((acc, product) => acc + product.price, 0);
 
-  console.log("Cart data from cart.jsx: ", cart);
-
   const handleRemoveFromCart = (productId) => {
     removeFromCart(productId);
     toast.error("Product removed from cart");
